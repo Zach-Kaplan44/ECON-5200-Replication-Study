@@ -1,4 +1,5 @@
-# TODO: Replicating Author (Year), "Title of the paper"
+# TODO: Replicating Hansen (2015), "Punishment and Deterrence:
+Evidence from Drunk Driving"
 
 > **Template note, delete before you submit.** This is the ECON 5200 replication template.
 > Replace every line that starts with `TODO:`. The grader clones this repository into an
@@ -7,9 +8,10 @@
 
 ## The paper and its headline claim
 
-- **Paper:** TODO: full citation (authors, year, title, journal, volume, pages).
-- **Identification strategy:** TODO: difference-in-differences / instrumental variables / regression discontinuity / matching.
-- **Headline claim:** TODO: one sentence, with the number and where it is in the paper (for example, Table 2, column 3).
+- **Paper:** Hansen, Benjamin. 2015. "Punishment and Deterrence: Evidence from Drunk Driving." American Economic Review 105 (4): 1581–1617.
+DOI: 10.1257/aer.20130189
+- **Identification strategy:** Regression Discontinuity.
+- **Headline claim:** A 2.1 percentage point decrease in DUI in the next four years for drivers who surpassed the 0.08 DUI BAC threshold. Located in Table 3, in the regression coefficient under column 1 "All tested drivers"
 - **My replication:** TODO: my number beside theirs, and the gap in percent, as `python reproduce.py` prints it.
 
 ## Reproduce the headline table
@@ -33,7 +35,7 @@ outputs, go to `output/executed/`.
 
 ## Data: source and licence
 
-- **Source:** TODO: the URL in `download_data.py` for your paper, and who produced the original data.
+- **Source:** https://raw.githubusercontent.com/scunning1975/mixtape/master/hansen_dwi.dta
 - **Included or downloaded:** TODO: say which, and why.
 
 The template downloads by default: `.gitignore` excludes `data/*.dta`, and
