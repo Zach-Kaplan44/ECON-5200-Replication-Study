@@ -1,10 +1,5 @@
-# TODO: Replicating Hansen (2015), "Punishment and Deterrence:
+# Replicating Hansen (2015), "Punishment and Deterrence:
 Evidence from Drunk Driving"
-
-> **Template note, delete before you submit.** This is the ECON 5200 replication template.
-> Replace every line that starts with `TODO:`. The grader clones this repository into an
-> empty directory, builds the environment from `requirements.txt` and runs the one command
-> below. The number this README claims must be the number that run produces.
 
 ## The paper and its headline claim
 
@@ -12,7 +7,7 @@ Evidence from Drunk Driving"
 DOI: 10.1257/aer.20130189
 - **Identification strategy:** Regression Discontinuity.
 - **Headline claim:** A 2.1 percentage point decrease in DUI in the next four years for drivers who surpassed the 0.08 DUI BAC threshold. Located in Table 3, in the regression coefficient under column 1 "All tested drivers"
-- **My replication:** TODO: my number beside theirs, and the gap in percent, as `python reproduce.py` prints it.
+- **My replication:** −0.0221 (SE 0.0041), against the paper's −0.021: a gap of −5.45% as `python reproduce.py` prints it, meaning my estimate is slightly larger in magnitude. The gap is about a quarter of a standard error. The other seven replicated estimates, including the 0.15 threshold, are in `output/headline_table.csv` and the report.
 
 ## Reproduce the headline table
 
@@ -31,12 +26,16 @@ it downloads the data if `data/` does not have it, runs `notebooks/01_positionin
 table from `output/headline_table.csv`. Executed copies of the notebooks, with their
 outputs, go to `output/executed/`.
 
-- **Expected runtime:** TODO: minutes on your machine, measured from a clean clone (the empty template runs in under a minute).
+- **Expected runtime:** about 6 minutes, measured from a clean clone in Google Colab (5 minutes 32 seconds). Notebook 01 takes about 10 seconds; almost all the rest is notebook 02, where `rdrobust`'s data-driven bandwidth selection is slow on this sample. The run has not frozen if notebook 02 takes several minutes.
+
+### Running a notebook in Google Colab
+Each notebook has a commented-out setup cell at the top. Uncomment it and run it first: it clones this repository so the notebook can find `download_data.py`, and in notebook 02 it also runs notebook 01 (to create `output/headline_table.csv`) and installs `rdrobust`. Keep it commented out when running `python reproduce.py`.
+
 
 ## Data: source and licence
 
 - **Source:** https://raw.githubusercontent.com/scunning1975/mixtape/master/hansen_dwi.dta
-- **Included or downloaded:** TODO: say which, and why.
+- **Included or downloaded:** Downloaded. The data are not stored in this repository; `download_data.py` fetches the file on the first run, and `.gitignore` excludes `data/*.dta`. The file is public, in a repository whose MIT-style licence would permit including a copy, but downloading keeps the repository small and the source traceable to a single public URL. The underlying data were collected by Hansen from Washington State administrative records.
 
 The template downloads by default: `.gitignore` excludes `data/*.dta`, and
 `download_data.py` fetches the files on the first run. Two facts to check before you
@@ -72,5 +71,4 @@ TODO: add a row for every file you add.
 
 Sections 1 and 2 were completed without AI.
 
-TODO: list the sections where you used AI (from 3, 4, 5 and 6), for what, and point to the
-entries in [`ai-appendix.md`](ai-appendix.md). If you used none, say so.
+AI Was used in Section 3. It was used to create a generic reusable function built on my own written section 2 regressions that could be used across each exercise. The first function call was written manually for each exercise, then AI was asked to write a for loop that looped that call over each function specification and save the results in a table.
